@@ -59,13 +59,7 @@
 (define-condition foreign-library-version-mismatch (error)
   ((library :initarg :library :reader .library)
    (minimum-version :initarg :minimum-version :reader .minimum-version)
-   (actual-version :initarg :actual-version :reader .actual-version))
-  (:report (lambda (c s)
-             (format s "Library ~A has too old version: it is ~A but required ~
-                        to be at least ~A"
-                       (.library c)
-                       (.actual-version c)
-                       (.minimum-version c)))))
+   (actual-version :initarg :actual-version :reader .actual-version)))
 
 (defun require-library-version (library min-major-version
                                         min-minor-version
